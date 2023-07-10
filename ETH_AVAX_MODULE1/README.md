@@ -27,7 +27,7 @@ The `ErrorHandling` contract provides the following functions:
 - If the `_numerator` is less than `_denominator`, it reverts the transaction with a custom error message stating that the numerator should be greater than the denominator.
 - If the condition is met, it returns the result of the division.
 
-### `testrequire_mult(uint a)`
+### `testrequire_mult(uint a,uint b)`
 
 - This function demonstrates the usage of the `require` function.
 - It takes an `a` parameter and performs multiplication with a predefined constant `b`.
