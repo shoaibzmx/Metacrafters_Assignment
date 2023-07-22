@@ -1,42 +1,30 @@
-# ErrorHandling Contract
 
-This is a Solidity smart contract that demonstrates different error handling techniques using `assert`, `revert`, and `require` functions.
 
-## License
+# ErrorHandling Smart Contract
 
-This contract is using the MIT License.
+The `ErrorHandling` is a simple Solidity smart contract that demonstrates various error handling techniques in Solidity - `require()`, `revert()`, and `assert()`.
 
-## Prerequisites
+## Description
 
-- Solidity ^0.8.17
+This contract includes three functions that perform basic arithmetic operations. Each function showcases a different error handling technique:
 
-## Contract Details
+1. `addNumbers`: This function adds two numbers `a` and `b` together. Before returning the result, it uses the `require()` statement to check if `a` is greater than or equal to 5. If `a` is not greater than or equal to 5, the transaction will be reverted with the specified error message.
 
-The `ErrorHandling` contract provides the following functions:
+2. `subtractNumbers`: This function subtracts `b` from `a`. If `b` is greater than `a`, the function will explicitly revert with the specified error message using the `revert()` statement.
 
-### `testAssert(uint num)`
+3. `multiplyNumbers`: This function multiplies two numbers `a` and `b`. It uses the `assert()` statement to check if `b` is greater than 0. If `b` is not greater than 0, the function will throw an assertion error.
 
-- This function demonstrates the usage of the `assert` function.
-- It takes a `num` parameter and checks if it is not equal to zero using the `assert` statement.
-- If the condition fails, it triggers an "Internal error" and aborts the execution.
+## How to Use
 
-### `testrevert_divide(uint _numerator, uint _denominator)`
+1. Install Solidity Compiler: Ensure you have the Solidity compiler installed on your machine. You can find the installation instructions on the official Solidity documentation.
 
-- This function demonstrates the usage of the `revert` function.
-- It takes `_numerator` and `_denominator` parameters and performs division.
-- If the `_numerator` is less than `_denominator`, it reverts the transaction with a custom error message stating that the numerator should be greater than the denominator.
-- If the condition is met, it returns the result of the division.
+2. Compile the Smart Contract: Compile the `ErrorHandling.sol` smart contract using the Solidity compiler. You can use Remix, Truffle, or any other Solidity development environment to compile the contract.
 
-### `testrequire_mult(uint a,uint b)`
+3. Deploy the Smart Contract: Deploy the compiled smart contract to your desired Ethereum network. You can use Remix or other Ethereum development tools to deploy the contract.
 
-- This function demonstrates the usage of the `require` function.
-- It takes an `a` parameter and performs multiplication with a predefined constant `b`.
-- It first checks if `a` is greater than zero using the `require` statement.
-- If the condition fails, it reverts the transaction with a custom error message stating that the value of `a` should not be zero.
-- If the condition is met, it returns the result of the multiplication.
+4. Interact with the Contract: Once the contract is deployed, you can interact with it by calling the various functions (`addNumbers`, `subtractNumbers`, `multiplyNumbers`) to observe the different error handling techniques. The contract will handle errors gracefully based on the conditions specified in each function.
 
-## Usage
+5. Note: Error handling is crucial in smart contracts to ensure proper execution and prevent vulnerabilities. By using `require()`, `revert()`, and `assert()` statements appropriately, you can handle exceptional situations and ensure the safety and reliability of your smart contract.
 
-1. Make sure you have Solidity ^0.8.17 installed.
-2. Compile and deploy the `ErrorHandling` contract to a supported Ethereum network.
-3. Interact with the deployed contract by calling the available functions and providing the required parameters.
+
+
