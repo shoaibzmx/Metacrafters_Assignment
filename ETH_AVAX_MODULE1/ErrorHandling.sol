@@ -1,24 +1,29 @@
 // SPDX-License-Identifier: MIT
+
 pragma solidity ^0.8.0;
 
-contract ErrorHandling {
-    function addNumbers(uint256 a, uint256 b) external pure returns (uint256) {
-        uint256 result = a + b;
-        require(a >= 5, "a should be greater than 5");
-        return result;
-    }
-
-    function subtractNumbers(uint256 a, uint256 b) external pure returns (uint256) {
-        if (b > a) {
-            revert("a should greater than b ");
-        }
-        return a - b;
-    }
-
+contract FavoriteNumbers {
+    address public owner;
+    mapping(address => uint256) public favoriteNumbers;
     
-    function multiplyNumbers(uint256 a, uint256 b) external pure returns (uint256) {
-        uint256 result = a * b;
-        assert(b > 0 ); 
-        return result;
+    constructor() {
+        owner = msg.sender;
     }
+    
+    function setFavoriteNumber(uint256 number) public {
+        assert(number != 0);
+        favoriteNumbers[msg.sender] = number;
+    }
+    
+    function getFavoriteNumber(address user) public view returns (uint256) {
+        return favoriteNumbers[user];
+    }
+
+    function deleteFavoriteNumber(address user) public {
+        require(msg.sender == owner, "Only the contract owner can delete a favorite number.");
+        if (favoriteNumbers[user] == 0) {
+            revert("User does not have a favorite number set.");
+        }
+        delete favoriteNumbers[user];
+       }
 }
