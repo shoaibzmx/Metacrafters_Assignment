@@ -15,8 +15,9 @@ The `ErrorHandling` is a simple Solidity smart contract that demonstrates variou
 
 3. Deploy the Smart Contract: Deploy the compiled smart contract to your desired Ethereum network. You can use Remix or other Ethereum development tools to deploy the contract.
 
-4.The contract has these fnctions-
-  `setFavoriteNumber(uint256 number)`
+4.The contract has these functions -
+ 
+`setFavoriteNumber(uint256 number)`
 Allows a user to set or update their favorite number. The number provided must be non-zero.
 
 `getFavoriteNumber(address user) returns (uint256)`
